@@ -11817,12 +11817,14 @@ in {
   };
 
   future = buildPythonPackage rec {
-    version = "0.15.2";
+    version = "0.16.0";
     name = "future-${version}";
 
-    src = pkgs.fetchurl {
-      url = "http://github.com/PythonCharmers/python-future/archive/v${version}.tar.gz";
-      sha256 = "0vm61j5br6jiry6pgcxnwvxhki8ksnirp7k9mcbmxmgib3r60xd3";
+    src = pkgs.fetchFromGitHub {
+      owner = "PythonCharmers";
+      repo = "python-future";
+      rev = "v${version}";
+      sha256 = "0ycpya8fgqjmaz26wdz5laxk9rwlalmwm74a67y81k7rkdx5rmm4";
     };
 
     propagatedBuildInputs = with self; optionals isPy26 [ importlib argparse ];
